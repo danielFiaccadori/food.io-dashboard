@@ -1,8 +1,9 @@
 import React from "react";
+import SignUpRestaurant from "../components/SignUpRestaurant";
 
 function LoginScreen() {
     return (
-        <h1>TESTE</h1>
+        <SignUpRestaurant />
     );
 }
 
