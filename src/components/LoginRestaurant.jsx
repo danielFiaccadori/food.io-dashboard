@@ -4,16 +4,12 @@ import logo from "../assets/logo.png"
 import { useNavigate } from "react-router-dom";
 import { Input } from "@headlessui/react";
 
-function SignUpRestaurant() {
+function LoginRestaurant() {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        username: "",
         email: "",
         password: "",
-        name: "",
-        isOpen: true,
-        role: "RESTAURANT"
     });
 
     const handleChange = (e) => {
@@ -32,11 +28,11 @@ function SignUpRestaurant() {
         console.log("Submetendo dados:", formData);
 
         try {
-            const res = await AuthService.signUp(formData);
+            const res = await AuthService.login(formData);
             console.log(res.data);
             localStorage.setItem('token', res.data.data.token);
         } catch (err) {
-            console.error("Error during account registration! (SignUpRestaurant::handleSubmit)")
+            console.error("Error during account login! (LoginRestaurant::handleSubmit)")
         }
     }
 
@@ -52,27 +48,19 @@ function SignUpRestaurant() {
 
                 <Input
                     className="w-full p-3 mb-4 rounded-xl bg-[#22212b] max-w-120 min-w-120 text-[#8b8b94] font-medium"
-                    name="username" value={formData.username} onChange={handleChange} placeholder="Nome de usuário*" />
-
-                <Input
-                    className="w-full p-3 mb-4 rounded-xl bg-[#22212b] max-w-120 min-w-120 text-[#8b8b94] font-medium"
                     name="email" value={formData.email} onChange={handleChange} placeholder="E-mail*" type="email" />
 
                 <Input
                     className="w-full p-3 mb-4 rounded-xl bg-[#22212b] max-w-120 min-w-120 text-[#8b8b94] font-medium"
                     name="password" value={formData.password} onChange={handleChange} placeholder="Senha*" type="password" />
 
-                <Input
-                    className="w-full p-3 mb-4 rounded-xl bg-[#22212b] max-w-120 min-w-120 text-[#8b8b94] font-medium"
-                    name="name" value={formData.name} onChange={handleChange} placeholder="Nome do restaurante*" />
-
-                <button onClick={() => navigate("/login")} className="text-[#F37359] underline mt-4 cursor-pointer">
-                    Já tem uma conta?
+                <button onClick={() => navigate("/signup")} className="text-[#F37359] underline mt-4 cursor-pointer">
+                    Fazer cadastro
                 </button>
 
                 <button
                     className="p-4 mt-6 mb-6 min-w-120 rounded-full bg-[#F37359] font-medium cursor-pointer transition hover:scale-102 hover:shadow-xl duration-200"
-                    type="submit">Cadastrar agora
+                    type="submit">Fazer login
                 </button>
 
                 <p className="text-[#8b8b94] p-4">Ao continuar, você será automaticamente redirecionado para o dashboard de gerenciamento.</p>
@@ -82,4 +70,4 @@ function SignUpRestaurant() {
 
 }
 
-export default SignUpRestaurant;
+export default LoginRestaurant;

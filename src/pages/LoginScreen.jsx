@@ -1,9 +1,11 @@
 import React from "react";
-import SignUpRestaurant from "../components/SignUpRestaurant";
+import LoginRestaurant from "../components/LoginRestaurant";
 
 function LoginScreen() {
     return (
-        <SignUpRestaurant />
+        <div className="flex items-center justify-center min-h-screen">
+            <LoginRestaurant />
+        </div>
     );
 }
 

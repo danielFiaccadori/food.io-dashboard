@@ -1,9 +1,15 @@
 import React from "react";
+import Sidebar from "../components/Sidebar";
 
-function LoginScreen() {
+function Dashboard() {
     return (
-        <h1>TESTE</h1>
+        <div className="flex h-screen">
+            <Sidebar />
+            <main className="flex-1 overflow-y-auto p-4 bg-[#101014]">
+                <h1>Teste</h1>
+            </main>
+        </div>
     );
 }
 
-export default LoginScreen;
+export default Dashboard;

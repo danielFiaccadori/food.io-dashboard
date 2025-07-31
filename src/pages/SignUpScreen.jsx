@@ -1,9 +1,12 @@
 import React from "react";
+import SignUpRestaurant from "../components/SignUpRestaurant";
 
-function LoginScreen() {
+function SignUpScreen() {
     return (
-        <h1>TESTE</h1>
+        <div className="flex items-center justify-center min-h-screen">
+            <SignUpRestaurant />
+        </div>
     );
 }
 
-export default LoginScreen;
+export default SignUpScreen;

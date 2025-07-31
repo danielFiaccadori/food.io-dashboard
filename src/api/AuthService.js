@@ -1,4 +1,4 @@
-import Api from "./api";
+import Api from "./Api";
 
 const AuthService = {
     signUp: (data) => Api.post(`/auth/register/restaurant`, data),
