@@ -4,7 +4,7 @@ function PublicRoute({ children }) {
     const token = localStorage.getItem("token");
 
     if (token && token !== "null" && token !== "undefined" && token.trim() !== "") {
-        return <Navigate to="/dashboard" replace />;
+        return <Navigate to="/dashboard/home" replace />;
     }
 
     return children;

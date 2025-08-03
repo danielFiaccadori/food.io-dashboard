@@ -6,13 +6,23 @@ const Api = axios.create({
 
 Api.interceptors.request.use(
     (config) => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
+        const publicPaths = ["/health-status", "/auth/login", "/auth/register"];
+
+        const isPublic = publicPaths.some(path => config.url?.includes(path));
+
+        if (!isPublic) {
+            const token = localStorage.getItem("token");
+            if (token) {
+                config.headers.Authorization = `Bearer ${token}`;
+            }
+        } else {
+            delete config.headers.Authorization;
         }
-        return config
+
+        return config;
     },
     (error) => Promise.reject(error)
 );
+
 
 export default Api;
