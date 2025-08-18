@@ -31,6 +31,8 @@ function LoginRestaurant() {
             const res = await AuthService.login(formData);
             console.log(res.data);
             localStorage.setItem('token', res.data.data.token);
+
+            navigate("/dashboard/home");
         } catch (err) {
             console.error("Error during account login! (LoginRestaurant::handleSubmit)")
         }
@@ -48,11 +50,11 @@ function LoginRestaurant() {
 
                 <Input
                     className="w-full p-3 mb-4 rounded-xl bg-[#22212b] max-w-120 min-w-120 text-[#8b8b94] font-medium"
-                    name="email" value={formData.email} onChange={handleChange} placeholder="E-mail*" type="email" />
+                    name="email" value={formData.email} onChange={handleChange} placeholder="E-mail*" type="email" required/>
 
                 <Input
                     className="w-full p-3 mb-4 rounded-xl bg-[#22212b] max-w-120 min-w-120 text-[#8b8b94] font-medium"
-                    name="password" value={formData.password} onChange={handleChange} placeholder="Senha*" type="password" />
+                    name="password" value={formData.password} onChange={handleChange} placeholder="Senha*" type="password" required/>
 
                 <button onClick={() => navigate("/signup")} className="text-[#F37359] underline mt-4 cursor-pointer">
                     Fazer cadastro

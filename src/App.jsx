@@ -6,7 +6,7 @@ import SignUpScreen from './pages/SignUpScreen'
 import LoginScreen from './pages/LoginScreen';
 
 import DashboardLayout from './components/DashboardLayout';
-import Orders from './pages/Orders';
+import Restaurant from './pages/Restaurant';
 import Dashboard from './pages/Dashboard';
 import Finance from './pages/Finance';
 import Products from './pages/Products';
@@ -15,7 +15,7 @@ import PublicRoute from './components/PublicRoute';
 
 function App() {
   return (
-    /* <Router>
+    <Router>
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<PublicRoute><LoginScreen /></PublicRoute>} />
@@ -30,14 +30,14 @@ function App() {
           }
         >
           <Route path="home" element={<Dashboard />} />
-          <Route path="orders" element={<Orders />} />
+          <Route path="restaurant" element={<Restaurant />} />
           <Route path="products" element={<Products />} />
           <Route path="finance" element={<Finance />} />
         </Route>
       </Routes>
-    </Router > */
+    </Router >
 
-    <Router>
+    /* <Router>
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<PublicRoute><LoginScreen /></PublicRoute>} />
@@ -50,7 +50,7 @@ function App() {
           <Route path='finance' element={<Finance />} />
         </Route>
       </Routes>
-    </Router>
+    </Router> */
   );
 }
 

@@ -2,7 +2,7 @@ import { Icon } from "lucide-react";
 
 function SmallValueChart({ title, value, icon: Icon }) {
     return (
-        <div className="p-4 bg-[#22222980] rounded-xl text-white flex items-center text-left gap-4 shadow-lg">
+        <div className="p-4 bg-[#22222980] rounded-xl text-white flex items-center text-left gap-4 shadow-lg ring-1 ring-white/10">
             <div className="bg-[#22222980] p-3 rounded-full">
                 {Icon && <Icon size={20} />}
             </div>

@@ -29,14 +29,22 @@ function SignUpRestaurant() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log("Submetendo dados:", formData);
+        console.log("Submiting data:", formData);
 
         try {
-            const res = await AuthService.signUp(formData);
-            console.log(res.data);
-            localStorage.setItem('token', res.data.data.token);
+            await AuthService.signUp(formData);
+            console.log("Successfully registered");
+
+            const loginRes = await AuthService.login({
+                email: formData.email,
+                password: formData.password
+            });
+
+            localStorage.setItem('token', loginRes.data.data.token);
+
+            navigate("/dashboard/home");
         } catch (err) {
-            console.error("Error during account registration! (SignUpRestaurant::handleSubmit)")
+            console.error("Error during register or login! (SignUpRestaurant::handleSubmit)", err);
         }
     }
 
@@ -44,7 +52,7 @@ function SignUpRestaurant() {
         <div className="flex flex-col md:flex-row w-1/6 max-w-120 content-center justify-center">
             <form onSubmit={handleSubmit}>
 
-                <div>
+                <div className="flex-1 content-center justify-center">
                     <img
                         className="w-full"
                         src={logo} />
@@ -52,19 +60,19 @@ function SignUpRestaurant() {
 
                 <Input
                     className="w-full p-3 mb-4 rounded-xl bg-[#22212b] max-w-120 min-w-120 text-[#8b8b94] font-medium"
-                    name="username" value={formData.username} onChange={handleChange} placeholder="Nome de usuário*" />
+                    name="username" value={formData.username} onChange={handleChange} placeholder="Nome de usuário*" required/>
 
                 <Input
                     className="w-full p-3 mb-4 rounded-xl bg-[#22212b] max-w-120 min-w-120 text-[#8b8b94] font-medium"
-                    name="email" value={formData.email} onChange={handleChange} placeholder="E-mail*" type="email" />
+                    name="email" value={formData.email} onChange={handleChange} placeholder="E-mail*" type="email" required/>
 
                 <Input
                     className="w-full p-3 mb-4 rounded-xl bg-[#22212b] max-w-120 min-w-120 text-[#8b8b94] font-medium"
-                    name="password" value={formData.password} onChange={handleChange} placeholder="Senha*" type="password" />
+                    name="password" value={formData.password} onChange={handleChange} placeholder="Senha*" type="password" required/>
 
                 <Input
                     className="w-full p-3 mb-4 rounded-xl bg-[#22212b] max-w-120 min-w-120 text-[#8b8b94] font-medium"
-                    name="name" value={formData.name} onChange={handleChange} placeholder="Nome do restaurante*" />
+                    name="name" value={formData.name} onChange={handleChange} placeholder="Nome do restaurante*" required/>
 
                 <button onClick={() => navigate("/login")} className="text-[#F37359] underline mt-4 cursor-pointer">
                     Já tem uma conta?

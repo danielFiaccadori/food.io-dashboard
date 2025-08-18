@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo_title.png"
-import { LayoutDashboard, ShoppingCart, Package, Wallet, Activity } from "lucide-react";
+import { ShoppingCart, Package, Wallet, Activity, House, ForkKnife } from "lucide-react";
 import HealthService from "../api/HealthService";
 
 function Sidebar() {
@@ -28,13 +28,13 @@ function Sidebar() {
    ${isActive ? "bg-[#F37359] font-medium" : "hover:bg-[#19191f]"}`;
 
     return (
-        <div className="w-1/6 bg-[#0c0c0f] text-white p-4 h-full text-left">
+        <div className="w-64 bg-[#0c0c0f] text-white p-4 h-full text-left">
             <div className="h-1/2">
                 <img
                     className="w-1/3 mb-4"
                     src={logo} />
-                <NavLink to="/dashboard/home" className={linkClasses}><LayoutDashboard className="mr-2" size={20} />Resumo</NavLink>
-                <NavLink to="/dashboard/orders" className={linkClasses}><ShoppingCart className="mr-2" size={20} />Pedidos</NavLink>
+                <NavLink to="/dashboard/home" className={linkClasses}><House className="mr-2" size={20} />Home</NavLink>
+                <NavLink to="/dashboard/restaurant" className={linkClasses}><ForkKnife className="mr-2" size={20} />Restaurante</NavLink>
                 <NavLink to="/dashboard/products" className={linkClasses}><Package className="mr-2" size={20} />Produtos</NavLink>
                 <NavLink to="/dashboard/finance" className={linkClasses}><Wallet className="mr-2" size={20} />Resumo Financeiro</NavLink>
             </div>

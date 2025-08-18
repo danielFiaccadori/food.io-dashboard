@@ -1,6 +1,6 @@
 import React from "react";
 
-function LoginScreen() {
+function Restaurant() {
     return (
         <div className="flex h-screen">
 
@@ -8,4 +8,4 @@ function LoginScreen() {
     );
 }
 
-export default LoginScreen;
+export default Restaurant;
